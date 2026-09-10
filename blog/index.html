@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatismos Mar del Plata</title>
+    <!-- Fuentes estilo Hiero WordPress Theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           RESETS Y ESTILOS BASE (Inspirados en Hiero Theme de WordPress)
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #b22222;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #800000;
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           HEADER / NAVEGACIÓN
+           ========================================================================== */
+        header {
+            background-color: #16161b;
+            border-bottom: 4px solid #b22222;
+            padding: 20px 0;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .site-title-fallback {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav.nav-bar {
+            background-color: #222222;
+            border-bottom: 1px solid #333333;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .nav-container a {
+            color: #cccccc;
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 12px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-container a:hover,
+        .nav-container a.active {
+            background-color: #b22222;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* ==========================================================================
+           CONTENIDO PRINCIPAL Y LAYOUT
+           ========================================================================== */
+        .wrapper {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px;
+        }
+
+        @media (max-width: 850px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* BANNER DE AVISO HISTÓRICO */
+        .archive-banner {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .archive-banner h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 6px;
+            color: #533f03;
+            text-transform: uppercase;
+        }
+
+        /* CONTENIDO DE LA SECCIÓN PRINCIPAL */
+        .main-content {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        .entry-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: #222222;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #b22222;
+            padding-bottom: 8px;
+        }
+
+        .entry-meta {
+            font-size: 12px;
+            color: #777777;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .post-body p {
+            margin-bottom: 16px;
+        }
+
+        .post-body ul {
+            margin: 0 0 20px 25px;
+        }
+
+        .post-body li {
+            margin-bottom: 8px;
+        }
+
+        /* CAJA DESTACADA DE DESCARGA / GITHUB */
+        .download-box {
+            background-color: #f8f9fa;
+            border: 2px dashed #b22222;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .download-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            color: #b22222;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .btn-github {
+            display: inline-block;
+            background-color: #24292e;
+            color: #ffffff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-github:hover {
+            background-color: #b22222;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* ==========================================================================
+           BARRA LATERAL (SIDEBAR EN ESTILO HIERO)
+           ========================================================================== */
+        .sidebar-widget {
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 25px;
+        }
+
+        .widget-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            border-bottom: 2px solid #222222;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-widget p {
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            padding: 6px 0;
+            border-bottom: 1px dotted #dddddd;
+            font-size: 14px;
+        }
+
+        .widget-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaaaaa;
+            padding: 30px 0;
+            font-size: 13px;
+            border-top: 4px solid #b22222;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-container a {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header role="banner">
+        <div class="header-container">
+            <!-- Si logoweb.png no carga o no existe en la carpeta, muestra el texto -->
+            <a href="#">
+                <img src="blog/logoweb.png" alt="Automatismos Mar del Plata" class="logo-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <h1 class="site-title-fallback" style="display:none;">Automatismos Mar del Plata</h1>
+            </a>
+        </div>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#" class="active">Inicio</a>
+            <a href="https://web.archive.org/web/20260221202033/https://www.automatismos-mdq.com.ar/blog/"
+                target="_blank">Archive.org Snapshot</a>
+            <a href="https://github.com/lmtreser/automatismos-mdq-site" target="_blank">Repositorio GitHub</a>
+            <a href="mailto:info@automatismos-mdq.com.ar" target="_blank">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- LAYOUT PRINCIPAL -->
+    <div class="wrapper">
+
+        <!-- COLUMNA PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- ALERTA HISTÓRICA -->
+            <div class="archive-banner">
+                <h2>Fin del proyecto</h2>
+                <p>El blog de <strong>Automatismos Mar del Plata</strong> ha finalizado su ciclo
+                    online tras más de una década de actividad compartiendo proyectos de electrónica, robótica y control
+                    industrial.</p>
+            </div>
+
+            <article>
+                <h1 class="entry-title">Acerca del Proyecto & Resguardo de Archivos</h1>
+                <div class="entry-meta">
+                    Publicado por <strong>Lucas Martin</strong> | Preservación Digital
+                </div>
+
+                <div class="post-body">
+                    <p><strong>Automatismos Mar del Plata</strong> nació como un blog y espacio de difusión técnica
+                        orientado a compartir notas, guías, tutoriales y desarrollos sobre:</p>
+
+                    <ul>
+                        <li>Automatismos y Control Industrial / PLCs.</li>
+                        <li>Electrónica microcontrolada (Arduino, PIC, ESP32).</li>
+                        <li>Robótica, Domótica y Sistemas Electrónicos de Seguridad.</li>
+                        <li>Publicaciones abiertas y proyectos de código/hardware libre.</li>
+                    </ul>
+
+                    <p>Con el paso del tiempo y la evolución de nuevas etapas profesionales, el portal ha concluido su
+                        ciclo activo. Sin embargo, para no perder el material educativo y la memoria del sitio, se ha
+                        creado este repositorio abierto.</p>
+
+                    <!-- CAJA DE DESCARGA DE ARCHIVOS -->
+                    <div class="download-box">
+                        <h3>📦 Respaldos y Código Fuente Disponibles</h3>
+                        <p>En este repositorio de GitHub se encuentran alojados los archivos de respaldo del blog
+                            original en WordPress, incluyendo entradas, esquemas y recursos descargables.</p>
+
+                        <a href="https://github.com/lmtreser/automatismos-mdq-site" class="btn-github" target="_blank">
+                            Ver Archivos en GitHub
+                        </a>
+                    </div>
+
+                    <h3>Navegar por las capturas históricas</h3>
+                    <p>Si deseas navegar por la versión histórica tal cual como lucía en la web cuando estaba en línea,
+                        podés acceder a las capturas archivadas oficialmente en Wayback Machine:</p>
+                    <p>👉 <a href="https://web.archive.org/web/20260221202033/https://www.automatismos-mdq.com.ar/blog/"
+                            target="_blank" rel="noopener">Ver captura histórica en Archive.org</a></p>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Sobre el Sitio</h3>
+                <p>Notas y artículos útiles, automatismos, control industrial, PLC, electrónica microcontrolada, ideas
+                    de diseño y educación tecnológica desde Mar del Plata, Argentina.</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Categorías Históricas</h3>
+                <ul class="widget-list">
+                    <li>⚡ Electrónica & Microcontroladores</li>
+                    <li>🤖 Robótica & Domótica</li>
+                    <li>⚙️ Control Industrial & PLC</li>
+                    <li>📚 Educación & Tutoriales</li>
+                    <li>📰 Noticias & Divulgación</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Licencia</h3>
+                <p>El contenido histórico de Automatismos Mar del Plata se mantiene disponible bajo licencias abiertas
+                    para fines educativos y de consulta libre.</p>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                © Automatismos Mar del Plata — Archivo y Resguardo Digital.
+            </div>
+            <div>
+                Alojado con ❤️ en <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
